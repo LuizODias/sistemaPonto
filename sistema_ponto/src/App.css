@@ -28,3 +28,32 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.row .col button{
+  text-align: center;
+  margin-top: 5px;
+  margin-left: 210px;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0;
+  background: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.row .col button:hover{
+  opacity: 0.9;
+  background: #808080;
+}
+
+.row .col button[disabled]{
+  opacity: 0.5;
+  cursor: default;
+}
+
+.product-list .actions button[disabled]:hover{
+  opacity: 0.5;
+}

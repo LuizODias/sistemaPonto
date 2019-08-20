@@ -1,32 +1,53 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
 import './App.css';
 import './bootstrap.css';
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.showUser = this.showUser.bind(this);
-    
+
     this.state = {
       users: []
     }
   }
 
   async componentDidMount() {
-    let response = await fetch('http://b1a9c387.ngrok.io  /users');
+    let response = await fetch('http://16eabd3d.ngrok.io/users');
     let json = await response.json();
     this.setState({ users: json });
   }
 
-  showUser(){
+  showUser() {
     alert('user');
+  }
+
+  setRedirect = ()=>{
+    this.setState({
+      redirect: true
+    })
+  }
+
+  renderRedirect = ()=>{
+    if(this.state.redirect){
+      return <Redirect to='/cadastro'/>
+    }
   }
 
   render() {
     return (
       <div className="center_div">
-        <h1>Zuppers</h1>
+        <div className="row">
+          <div className="col">
+            <h1>Zuppers</h1>
+          </div>
+          <div className="col">
+            {this.renderRedirect()}
+            <button onClick={this.setRedirect}>Cadastro</button>
+          </div>
+        </div>
         <table className="table table-bordered">
           <thead>
             <tr>
@@ -38,8 +59,8 @@ class App extends Component {
             </tr>
           </thead>
           <tbody>
-            {        
-              this.state.users.map(function(user){                
+            {
+              this.state.users.map(function (user) {
                 return (
                   <tr key={user.cpf}>
                     <td>{user.nome}</td>
