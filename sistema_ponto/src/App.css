@@ -30,6 +30,7 @@
 }
 
 .row .col button{
+  align-items: center;
   text-align: center;
   margin-top: 5px;
   margin-left: 210px;

@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    let response = await fetch('http://16eabd3d.ngrok.io/users');
+    let response = await fetch('http://3d326748.ngrok.io/users');
     let json = await response.json();
     this.setState({ users: json });
   }

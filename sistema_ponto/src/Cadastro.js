@@ -76,7 +76,7 @@ class Cadastro extends Component {
             })
         };
 
-        fetch('http://16eabd3d.ngrok.io/users', requestInfo)
+        fetch('http://3d326748.ngrok.io/users', requestInfo)
             .then(response => {
                 if (response.ok) {
                     this.setState({
